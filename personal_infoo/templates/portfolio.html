@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratna Kololagi - Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'postfolio.png' %}" type="image/png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f4f8; /* Light background */
+            padding-top: 70px; /* For fixed navbar */
+            scroll-behavior: smooth; /* Smooth scroll with native CSS */
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #aa6f73; /* Primary color */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #ffffff; /* White text */
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: #ffffff !important; /* White text */
+            padding: 15px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #66545e !important; /* Secondary color on hover */
+        }
+
+        /* Header Section */
+        /* Header Section */
+header {
+    background-color: #f9f9f9; /* Light background for a clean look */
+    padding: 60px 20px; /* Padding for spacing */
+    border-bottom: 4px solid #66545e; /* Secondary color border */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+header h1 {
+    font-size: 2.5rem; /* Slightly smaller for a balanced look */
+    font-weight: 700; /* Bold for emphasis */
+    color: #aa6f73; /* Primary color */
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 1.1rem; /* Adjusted font size for readability */
+    margin-bottom: 15px;
+    color: #333; /* Dark color for text */
+}
+
+header p.position {
+    font-weight: 600; /* Bold for emphasis */
+    color: #66545e; /* Secondary color */
+}
+
+header a {
+    color: #aa6f73; /* Primary color */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+header a:hover {
+    color: #66545e; /* Secondary color on hover */
+}
+
+header .description {
+    font-size: 1rem; /* Slightly smaller text for description */
+    color: #666; /* Subtle color for less emphasis */
+    line-height: 1.6; /* Improved readability */
+    margin-top: 20px;
+}
+
+header .description span {
+    font-weight: 600; /* Bold for highlighted text */
+    color: #aa6f73; /* Primary color */
+}
+
+/* Image Section */
+.img-fluid {
+    max-width: 250px; /* Adjusted max-width for better proportion */
+    height: auto;
+    border: 5px solid #66545e; /* Border color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for emphasis */
+}
+
+
+        /* Section Titles */
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #66545e; /* Secondary color */
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* About Me Section */
+        #about {
+            background-color: #ffffff;
+            border: 1px solid #66545e;
+            border-radius: 8px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        #about p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        #about p span {
+            font-weight: bold;
+            color: #aa6f73; /* Highlight important text */
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            background-color: #ffffff;
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #66545e; /* Secondary color */
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #aa6f73; /* Primary color */
+        }
+
+
+        /* Skills Section */
+        #skills ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #skills ul li {
+            background-color: #aa6f73; /* Primary color */
+            color: #ffffff; /* White text */
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Contact Me Section */
+        #contact {
+            background-color: #ffffff;
+            border: 1px solid #66545e;
+            border-radius: 8px;
+            padding: 40px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        #contact a {
+            color: #aa6f73;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #contact a:hover {
+            color: #66545e; /* Secondary color */
+        }
+
+        #contact p {
+            margin: 0 0 15px;
+        }
+
+        #contact button {
+            background-color: #aa6f73;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #contact button:hover {
+            background-color: #66545e;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #aa6f73; /* Primary color */
+            color: #ffffff; /* White text */
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand" href="#">Ratna Kololagi's Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#work-experience">Work Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#education">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <br><br>
+    <!-- Header Section -->
+    <h2>About Me</h2>
+    <header class="container text-center">
+    <div class="row align-items-center">
+        <div class="col-md-7 text-left">
+            <!-- Personal Information -->
+            <h1>{{ personal_info.first_name }} {{ personal_info.last_name }}</h1>
+            <p class="position">Desired Position: {{ personal_info.desired_position }}</p>
+            <p>Address: {{ personal_info.address }}</p>
+            <p>Email: <a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a></p>
+<p class="description">Skilled <span>Django Python developer</span> from Athani, Karnataka, with expertise in <span>HTML, CSS, JavaScript</span>, and <span>PostgreSQL</span>. Experienced in building robust web applications and crafting seamless user experiences. Known for problem-solving, attention to detail, and collaboration. With <span>8 months</span> of experience, holding a <span>BCA degree</span> and pursuing an <span>MCA</span> while working.</p>        </div>
+        <div class="col-md-5 text-center">
+            <!-- Image Section -->
+            <img src="{% static 'postfolio.png' %}" alt="Portfolio Image" class="img-fluid rounded-circle">
+        </div>
+    </div>
+</header>
+
+
+
+    <!-- About Me Section -->
+    
+<br>
+    <!-- Work Experience Section -->
+    <!-- Work Experience Section -->
+<section id="work-experience" class="container">
+    <h2>Work Experience</h2>
+    <div class="row justify-content-center">
+        {% for experience in work_experiences %}
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ experience.position }} at {{ experience.company_name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Working From: {{ experience.start_date }} to {{ experience.end_date }}</h6>
+                    <p class="card-text">{{ experience.responsibilities }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-md-8">
+            <p>No work experience available.</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+    <!-- Education Section -->
+    <section id="education" class="container">
+        <h2>Education</h2>
+        <div class="row">
+            {% for edu in education %}
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ edu.qualification }} at {{ edu.institution }}</h5>
+                        <h6 class="card-subtitle mb-2">Years: {{ edu.start_year }} - {{ edu.end_year }}</h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2>Skills</h2>
+        <ul class="row">
+            {% for skill in skills %}
+            <li class="col-md-3">{{ skill.name }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2>Projects</h2>
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.name }} (Role: {{ project.role }})</h5>
+                        <h6 class="card-subtitle mb-2">Technologies: {{ project.technologies }}</h6>
+                        <p class="card-text">Duration: {{ project.duration }}</p>
+                        <p class="project-description">{{ project.description }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Contact Me Section -->
+    <section id="contact" class="container">
+        <h2>Contact Me</h2>
+        <p>If you'd like to get in touch, feel free to reach out through the following methods:</p>
+        <p>Email: <a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a></p>
+        <p>Phone: {{ personal_info.phone_number }}</p>
+        <a href="https://www.linkedin.com/in/{{ personal_info.linkedin }}" target="_blank">LinkedIn</a>
+        <a href="https://github.com/{{ personal_info.github }}" target="_blank">GitHub</a>
+    </section>
+<br>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Ratna Kololagi. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
