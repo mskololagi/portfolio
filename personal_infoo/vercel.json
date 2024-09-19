@@ -5,9 +5,10 @@
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     }],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "postfooliio/wsgi.py"
-        }
-    ]
+    {
+        "src": "/(.*)",
+        "dest": "portfooliio/wsgi.py"
+    }
+]
+
 }
